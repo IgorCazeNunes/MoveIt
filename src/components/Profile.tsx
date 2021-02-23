@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from '../styles/components/Profile.module.css';
 
-export const Profile: React.FC = () => {
+export function Profile(): JSX.Element {
   return (
     <div className={styles.profileContainer}>
       <img src="https://github.com/igorcazenunes.png" alt="Igor Cazé" />
@@ -16,4 +16,4 @@ export const Profile: React.FC = () => {
       </div>
     </div>
   );
-};
+}
