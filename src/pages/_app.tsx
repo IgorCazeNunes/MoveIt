@@ -1,5 +1,5 @@
 import React from 'react';
-import AppProvider from '../../public/contexts';
+import AppProvider from '../hooks';
 
 import '../styles/global.css';
 
