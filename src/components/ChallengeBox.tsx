@@ -5,7 +5,7 @@ import { useChallenges } from '../hooks/ChallengesContext';
 import styles from '../styles/components/ChallengeBox.module.css';
 
 export function ChallengeBox(): JSX.Element {
-  const { activeChallenge } = useChallenges();
+  const { activeChallenge, resetChallenge } = useChallenges();
 
   return (
     <div className={styles.challengeBoxContainer}>
@@ -28,9 +28,7 @@ export function ChallengeBox(): JSX.Element {
             <button
               type="button"
               className={styles.challengeFailedButton}
-              onClick={() => {
-                console.log('Falhei');
-              }}
+              onClick={resetChallenge}
             >
               Falhei
             </button>
