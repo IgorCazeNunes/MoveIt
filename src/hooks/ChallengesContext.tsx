@@ -21,6 +21,7 @@ interface ChallengeData {
 interface ChallengesContextData {
   level: number;
   currentExperience: number;
+  experienceToNextLevel: number;
   challengesCompleted: number;
   activeChallenge: ChallengeData;
   levelUp(): void;
@@ -39,6 +40,9 @@ export function ChallengesProvider({
   const [currentExperience, setCurrentExperience] = useState(0);
   const [challengesCompleted, setChallengesCompleted] = useState(0);
   const [activeChallenge, setActiveChallenge] = useState(null);
+
+  // eslint-disable-next-line no-restricted-properties
+  const experienceToNextLevel = Math.pow((level + 1) * 4, 2);
 
   const levelUp = useCallback(() => {
     setLevel(level + 1);
@@ -60,6 +64,7 @@ export function ChallengesProvider({
       value={{
         level,
         currentExperience,
+        experienceToNextLevel,
         challengesCompleted,
         activeChallenge,
         levelUp,
