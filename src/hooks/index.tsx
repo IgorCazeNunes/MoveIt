@@ -1,8 +1,11 @@
 import React from 'react';
 import { ChallengesProvider } from './ChallengesContext';
+import { CountdownProvider } from './CountdownContext';
 
 const AppProvider: React.FC = ({ children }) => (
-  <ChallengesProvider>{children}</ChallengesProvider>
+  <ChallengesProvider>
+    <CountdownProvider>{children}</CountdownProvider>
+  </ChallengesProvider>
 );
 
 export default AppProvider;
