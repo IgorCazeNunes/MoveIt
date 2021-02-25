@@ -26,6 +26,7 @@ interface ChallengesContextData {
   activeChallenge: ChallengeData;
   levelUp(): void;
   startNewChallenge(): void;
+  completeChallenge(): void;
   resetChallenge(): void;
 }
 
@@ -55,6 +56,32 @@ export function ChallengesProvider({
     setActiveChallenge(challenge as ChallengeData);
   }, []);
 
+  const completeChallenge = useCallback(() => {
+    if (!activeChallenge) {
+      // eslint-disable-next-line no-useless-return
+      return;
+    }
+
+    const { amount } = activeChallenge;
+
+    let finalExperience = currentExperience + amount;
+
+    if (finalExperience >= experienceToNextLevel) {
+      finalExperience -= experienceToNextLevel;
+      levelUp();
+    }
+
+    setCurrentExperience(finalExperience);
+    setActiveChallenge(null);
+    setChallengesCompleted(challengesCompleted + 1);
+  }, [
+    activeChallenge,
+    currentExperience,
+    experienceToNextLevel,
+    challengesCompleted,
+    levelUp,
+  ]);
+
   const resetChallenge = useCallback(() => {
     setActiveChallenge(null);
   }, []);
@@ -69,6 +96,7 @@ export function ChallengesProvider({
         activeChallenge,
         levelUp,
         startNewChallenge,
+        completeChallenge,
         resetChallenge,
       }}
     >
