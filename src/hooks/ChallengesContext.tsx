@@ -3,6 +3,7 @@ import React, {
   ReactNode,
   useCallback,
   useContext,
+  useEffect,
   useState,
 } from 'react';
 
@@ -45,6 +46,10 @@ export function ChallengesProvider({
   // eslint-disable-next-line no-restricted-properties
   const experienceToNextLevel = Math.pow((level + 1) * 4, 2);
 
+  useEffect(() => {
+    Notification.requestPermission();
+  }, []);
+
   const levelUp = useCallback(() => {
     setLevel(level + 1);
   }, [level]);
@@ -54,6 +59,15 @@ export function ChallengesProvider({
     const challenge = challenges[randomChallengeIndex];
 
     setActiveChallenge(challenge as ChallengeData);
+
+    new Audio('/notification.mp3').play();
+
+    if (Notification.permission === 'granted') {
+      // eslint-disable-next-line no-new
+      new Notification('Novo desafio ✨', {
+        body: `Valendo ${challenge.amount}xp!`,
+      });
+    }
   }, []);
 
   const completeChallenge = useCallback(() => {
