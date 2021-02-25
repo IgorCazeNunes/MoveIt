@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-one-expression-per-line */
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useChallenges } from '../hooks/ChallengesContext';
+import { useCountdown } from '../hooks/CountdownContext';
 
 import styles from '../styles/components/ChallengeBox.module.css';
 
@@ -10,6 +11,17 @@ export function ChallengeBox(): JSX.Element {
     resetChallenge,
     completeChallenge,
   } = useChallenges();
+  const { resetCountdown } = useCountdown();
+
+  const handleChallengeSucceeded = useCallback(() => {
+    completeChallenge();
+    resetCountdown();
+  }, [completeChallenge, resetCountdown]);
+
+  const handleChallengeFailed = useCallback(() => {
+    resetChallenge();
+    resetCountdown();
+  }, [resetChallenge, resetCountdown]);
 
   return (
     <div className={styles.challengeBoxContainer}>
@@ -32,7 +44,7 @@ export function ChallengeBox(): JSX.Element {
             <button
               type="button"
               className={styles.challengeFailedButton}
-              onClick={resetChallenge}
+              onClick={handleChallengeFailed}
             >
               Falhei
             </button>
@@ -40,7 +52,7 @@ export function ChallengeBox(): JSX.Element {
             <button
               type="button"
               className={styles.challengeSucceededButton}
-              onClick={completeChallenge}
+              onClick={handleChallengeSucceeded}
             >
               Completei
             </button>
