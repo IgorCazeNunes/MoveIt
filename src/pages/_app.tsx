@@ -1,5 +1,4 @@
 import React from 'react';
-import AppProvider from '../hooks';
 
 import '../styles/global.css';
 
