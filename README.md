@@ -33,7 +33,7 @@ Caso você queria ver todo o layout no prototipo é só [clicar aqui](https://ww
 </h3>
 
 <h3 align="center">
-  <img src='github/Home Inicio.png' alt='MoveIt Home Preview' width=800 />
+  <img src='github/Home Inicio.jpeg' alt='MoveIt Home Preview' width=800 />
 </h3>
 
 <h3 align="center">
@@ -41,7 +41,7 @@ Caso você queria ver todo o layout no prototipo é só [clicar aqui](https://ww
 </h3>
 
 <h3 align="center">
-  <img src='github/Home Encerrado.png' alt='MoveIt Ciclo de Pomodoro Finalizado Preview' width=800 />
+  <img src='github/Home Encerrado.jpeg' alt='MoveIt Ciclo de Pomodoro Finalizado Preview' width=800 />
 </h3>
 
 <h3 align="center">
@@ -49,7 +49,7 @@ Caso você queria ver todo o layout no prototipo é só [clicar aqui](https://ww
 </h3>
 
 <h3 align="center">
-  <img src='github/Home Level Up.png' alt='MoveIt Level Up Preview' width=800 />
+  <img src='github/Home Level Up.jpeg' alt='MoveIt Level Up Preview' width=800 />
 </h3>
 
 ---
