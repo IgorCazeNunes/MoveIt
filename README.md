@@ -59,7 +59,10 @@ Caso você queria ver todo o layout no prototipo é só [clicar aqui](https://ww
 O projeto foi desenvolvido utilizando as seguintes tecnologias:
 
 - [TypeScript](https://www.npmjs.com/package/typescript)
-- (TO-DO...)
+- [Next.Js](https://nextjs.org/)
+- [React](https://www.npmjs.com/package/react)
+- [React-dom](https://www.npmjs.com/package/react-dom)
+- [Js-Cookie](https://www.npmjs.com/package/js-cookie)
 
 ---
 
