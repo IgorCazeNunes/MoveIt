@@ -7,6 +7,8 @@ import React, {
   useState,
 } from 'react';
 
+import Cookies from 'js-cookie';
+
 import challenges from '../../challenges.json';
 
 interface ChallengesProviderProps {
@@ -49,6 +51,12 @@ export function ChallengesProvider({
   useEffect(() => {
     Notification.requestPermission();
   }, []);
+
+  useEffect(() => {
+    Cookies.set('Moveit-level', level.toString());
+    Cookies.set('Moveit-currentExperience', currentExperience.toString());
+    Cookies.set('Moveit-challengesCompleted', challengesCompleted.toString());
+  }, [level, currentExperience, challengesCompleted]);
 
   const levelUp = useCallback(() => {
     setLevel(level + 1);
